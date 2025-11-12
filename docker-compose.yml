@@ -27,4 +27,4 @@ services:
     volumes:
       - .:/app
     working_dir: /app
-    command: npm start
+    command: sh -c "npx wait-port db:3306 && npm run dev"

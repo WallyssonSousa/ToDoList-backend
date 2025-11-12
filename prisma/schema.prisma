@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("AUTH_DATABASE_URL")
+}
+
+model Board {
+  id        Int      @id @default(autoincrement())
+  name      String
+  lists     List[]
+  createdAt DateTime @default(now())
+}
+
+model List {
+  id        Int      @id @default(autoincrement())
+  title     String
+  position  Int
+  boardId   Int
+  board     Board     @relation(fields: [boardId], references: [id])
+  tasks     Task[]
+}
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  position    Int
+  listId      Int
+  list        List     @relation(fields: [listId], references: [id])
+  createdAt   DateTime @default(now())
+}

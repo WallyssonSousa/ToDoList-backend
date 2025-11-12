@@ -6,6 +6,19 @@
     "express": "^5.1.0",
     "prisma": "^6.19.0"
   },
+  "scripts": {
+    "start": "node dist/app.js",
+    "build": "tsup src",
+    "vercel": "npm i && npx prisma generate && tsc && npx vercel",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.ts",
+    "main": "npx prisma generate --schema prisma/schema.prisma",
+    "bancao": "npx prisma generate --schema prisma/auth.prisma",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "swagger": "ts-node src/swagger-output.ts",
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix"
+  },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
