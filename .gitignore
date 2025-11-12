@@ -1,0 +1,67 @@
+# -------------------------
+# Node.js
+# -------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-store
+
+# -------------------------
+# Build
+# -------------------------
+dist/
+build/
+out/
+
+# -------------------------
+# Environment variables
+# -------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# -------------------------
+# Logs
+# -------------------------
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+debug.log*
+
+
+# -------------------------
+# OS / Editor
+# -------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+
+# -------------------------
+# Outros arquivos temporários
+# -------------------------
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.backup
+
+# -------------------------
+# Optional: cobertura de testes
+# -------------------------
+coverage/
+*.lcov

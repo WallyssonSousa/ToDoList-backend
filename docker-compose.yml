@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_todolist
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:3306"
+
+  backend:
+    build: .
+    container_name: todolist_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      AUTH_DATABASE_URL: ${AUTH_DATABASE_URL}
+      NODE_ENV: ${NODE_ENV}
+    ports:
+      - "${APP_PORT}:3000"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: npm start
